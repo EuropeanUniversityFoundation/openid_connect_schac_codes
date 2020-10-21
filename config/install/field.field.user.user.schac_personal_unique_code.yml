@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.schac_personal_unique_code
+  module:
+    - user
+id: user.user.schac_personal_unique_code
+field_name: schac_personal_unique_code
+entity_type: user
+bundle: user
+label: 'SCHAC Personal Unique Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

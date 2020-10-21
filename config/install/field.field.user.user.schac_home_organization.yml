@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.schac_home_organization
+  module:
+    - user
+id: user.user.schac_home_organization
+field_name: schac_home_organization
+entity_type: user
+bundle: user
+label: 'SCHAC Home Organization'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
