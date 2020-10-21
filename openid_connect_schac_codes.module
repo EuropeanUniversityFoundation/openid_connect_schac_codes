@@ -76,7 +76,7 @@ function openid_connect_schac_codes_openid_connect_userinfo_save(UserInterface $
     $schac_home_organization = $context['userinfo']['schac_home_organization'];
     $values = [];
     foreach ($schac_home_organization as $value) {
-      $values.append($value);
+      $values[] = $value;
     }
     $account->set('schac_home_organization', $values);
   }
@@ -84,7 +84,7 @@ function openid_connect_schac_codes_openid_connect_userinfo_save(UserInterface $
     $schac_personal_unique_code = $context['userinfo']['schac_personal_unique_code'];
     $values = [];
     foreach ($schac_personal_unique_code as $value) {
-      $values.append($value);
+      $values[] = $value;
     }
     $account->set('schac_personal_unique_code', $values);
   }
