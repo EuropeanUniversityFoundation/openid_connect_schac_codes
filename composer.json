@@ -1,5 +1,5 @@
 {
-    "name": "openid_connect_schac_codes",
+    "name": "euf/openid_connect_schac_codes",
     "type": "drupal-module",
     "description": "Add support for SCHAC codes in the OpenID ecosystem",
     "keywords": [
