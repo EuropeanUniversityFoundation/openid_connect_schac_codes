@@ -22,3 +22,69 @@ function openid_connect_schac_codes_help($route_name, RouteMatchInterface $route
     default:
   }
 }
+
+/**
+ * Modify the list of claims.
+ *
+ * @param array $claims
+ *   A array of claims.
+ *
+ * @ingroup openid_connect_api
+ */
+function openid_connect_schac_codes_openid_connect_claims_alter(array &$claims) {
+  $claims['schac_home_organization'] = [
+    'scope' => 'schac_home_organization',
+    'title' => 'SCHAC Home Organization',
+    'type' => 'array',
+    'description' => 'schac_home_organization',
+  ];
+  $claims['schac_personal_unique_code'] = [
+    'scope' => 'schac_personal_unique_code',
+    'title' => 'SCHAC Personal Unique Code',
+    'type' => 'array',
+    'description' => 'schac_personal_unique_code',
+  ];
+}
+
+/**
+ * Save userinfo hook.
+ *
+ * This hook runs after the claim mappings have been applied by the OpenID
+ * Connect module, but before the account will be saved.
+ *
+ * A popular use case for this hook is mapping additional information like
+ * user roles or other complex claims provided by the identity provider, that
+ * the OpenID Connect module has no mapping mechanisms for.
+ *
+ * @param \Drupal\user\UserInterface $account
+ *   A user account object.
+ * @param array $context
+ *   An associative array with context information:
+ *   - tokens:         Array of original tokens.
+ *   - user_data:      Array of user and session data from the ID token.
+ *   - userinfo:       Array of user information from the userinfo endpoint.
+ *   - plugin_id:      The plugin identifier.
+ *   - sub:            The remote user identifier.
+ *   - is_new:         Whether the account was created during authorization.
+ *
+ * @ingroup openid_connect_api
+ */
+function openid_connect_schac_codes_openid_connect_userinfo_save(UserInterface $account, array $context) {
+  // Update only when the required information is available.
+  if (!empty($context['userinfo']['schac_home_organization'])) {
+    $schac_home_organization = $context['userinfo']['schac_home_organization'];
+    $values = [];
+    foreach ($schac_home_organization as $value) {
+      $values.append($value);
+    }
+    $account->set('schac_home_organization', $values);
+  }
+  if (!empty($context['userinfo']['schac_personal_unique_code'])) {
+    $schac_personal_unique_code = $context['userinfo']['schac_personal_unique_code'];
+    $values = [];
+    foreach ($schac_personal_unique_code as $value) {
+      $values.append($value);
+    }
+    $account->set('schac_personal_unique_code', $values);
+  }
+}
