@@ -1,0 +1,13 @@
+{
+    "name": "openid_connect_schac_codes",
+    "type": "drupal-module",
+    "description": "Add support for SCHAC codes in the OpenID ecosystem",
+    "keywords": [
+    ],
+    "homepage": "https://github.com/EuropeanUniversityFoundation/openid_connect_schac_codes",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/EuropeanUniversityFoundation/openid_connect_schac_codes/issues",
+        "source": "https://github.com/EuropeanUniversityFoundation/openid_connect_schac_codes"
+    }
+}

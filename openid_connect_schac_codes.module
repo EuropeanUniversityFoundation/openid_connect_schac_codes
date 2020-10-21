@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains openid_connect_schac_codes.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function openid_connect_schac_codes_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the openid_connect_schac_codes module.
+    case 'help.page.openid_connect_schac_codes':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Add support for SCHAC codes in the OpenID ecosystem') . '</p>';
+      return $output;
+
+    default:
+  }
+}
