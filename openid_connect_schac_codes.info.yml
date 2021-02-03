@@ -1,7 +1,6 @@
 name: 'OpenID Connect SCHAC codes'
 type: module
 description: 'Add support for SCHAC codes in the OpenID ecosystem'
-core: 8.x
 core_version_requirement: ^8.8 || ^9
 package: Security
 dependencies:
